@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>BIBLIOTECA DEL ROCK {counter}</h1>
+        <h1>BIBLIOTECA DEL ROCK</h1>
         <h2>Historias De La Música Latinoamericana</h2>
-        <p>Desarrollo del Rock a través de la Historia en Latinoamérica</p>
+  <p onClick={() => setCounter(counter + 1)}>Desarrollo del Rock a través de la Historia en Latinoamérica {counter}</p>
         <ul>
           <li><p onClick={() => elano(1950)}>1950</p></li>
           <li><p onClick={() => elano(1960)}>1960</p></li>
