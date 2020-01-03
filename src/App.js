@@ -7,16 +7,24 @@ function App() {
   const [data, setData] = useState({ hits: [] });
   useEffect(() => {
     async function fetchData() {
-      const response = await axios(
-        'https://hn.algolia.com/api/v1/search?query=redux',
-      );
-      setData(response.data);
+      const response = await axios({
+        url: 'https://api.spotify.com/v1/search?query=Muse&type=artist&market=US&offset=5&limit=10',
+        headers: {
+          'Accept':'application/json'
+        },
+        Authorization: {
+          Bearer: 'BQDnjvtqz6jbcHAFzq6KMqsQS0TDXmJOidcUfcSv_JflsRpdy5Q872PXB0lmdIhioLwBt8DHngIGBhZsmPc775Pbk8wfeb1WZdpnIH6AAOUxSgGmPbUYKyGLKlC0hWuPLcyIBdTVi8xgq-lWaNIcenITQT3aHj5PhM3dQiX47vO7me9cVQZMTSCldVBJJgNkewPX41_Y94e4F0BVoLJL-ldB8FsvKsh01A'
+        }
+      }).then(() => {
+        setData(response.data);
+      });
+      
     }
     fetchData();
   }, []);
   const elano = (valor) => {
     console.log(valor);
-    
+    console.log(data.hits);
   }
   return (
     <div className="App">
