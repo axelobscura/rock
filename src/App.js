@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   let [counter, setCounter] = useState(0);
   const [data, setData] = useState({ hits: [] });
+  const [elano, setElano] = useState("");
   useEffect(() => {
     async function fetchData() {
       const response = await axios({
@@ -16,7 +17,7 @@ function App() {
   }, []);
   const elano = (valor) => {
     console.log(valor);
-    
+    setElano(valor);
   }
   return (
     <div className="App">
@@ -34,6 +35,7 @@ function App() {
           <li><p onClick={() => elano(2010)}>2010</p></li>
           <li><p onClick={() => elano(2020)}>2020</p></li>
         </ul>
+  <h1>{elano}</h1>
         <ul>
           {data.hits.map(item => (
             <li key={item.objectID}>
